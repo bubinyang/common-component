@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    11
     <div class="moor-item">
       <label>Title:</label> 
       <moor-hello-world :color="color" :msg="msg"></moor-hello-world>
@@ -56,6 +57,7 @@
     <moor-button class="moor-btn" @click="handlePrint">打印选项值</moor-button>
 
      <three-level-city v-model="value" />
+     <ThreeDemo></ThreeDemo>
   </div>  
 </template>
 

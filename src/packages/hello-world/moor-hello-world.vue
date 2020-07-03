@@ -1,10 +1,10 @@
 <template>
-  <h1 :style="{color: color}">{{msg}}</h1>
+  <h1 :style="{color: color}"> {{ msg }}</h1>
 </template>
 
 <script>
 export default {
-  name: 'moorHelloWorld',
+  name: 'MoorHelloWorld',
   props: {
     color: {
       type: String,
@@ -12,7 +12,7 @@ export default {
     },
     msg: {
       type: String,
-      default: 'Hello World!'
+      default: 'Hello World!!!!!!s'
     }
   },
   data() {
@@ -24,5 +24,4 @@ export default {
 <style lang="scss">
 
 </style>
-
 

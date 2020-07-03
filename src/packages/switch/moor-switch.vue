@@ -1,28 +1,28 @@
 <template>
   <div class="moor-switch">
-    <span><slot></slot></span>
+    <span><slot /></span>
 
-    <div :class="[{closed: !checked}, 'switch-box']"
-      @click="handleChange(value)">
-      <span :class="{closed: !checked}"></span>
+    <div
+      :class="[{closed: !checked}, 'switch-box']"
+      @click="handleChange(value)"
+    >
+      <span :class="{closed: !checked}" />
     </div>
 
     <input
-    type="checkbox"
-    @change="handleChange"
-    :true-value="activeValue"
-    :false-value="inactiveValue"
-    :disabled="disabled"
-    :value="value">
+      type="checkbox"
+      :true-value="activeValue"
+      :false-value="inactiveValue"
+      :disabled="disabled"
+      :value="value"
+      @change="handleChange"
+    >
   </div>
 </template>
 
 <script>
 export default {
   name: 'MoorSwitch',
-  data() {
-    return {}
-  },
   props: {
     value: {
       type: [Boolean, String, Number],
@@ -41,14 +41,17 @@ export default {
       default: false
     }
   },
+  data() {
+    return {}
+  },
   computed: {
     checked() {
-      return this.value === this.activeValue;
+      return this.value === this.activeValue
     }
   },
   methods: {
     handleChange(value) {
-      this.$emit('input', !this.checked ? this.activeValue : this.inactiveValue);
+      this.$emit('input', !this.checked ? this.activeValue : this.inactiveValue)
     }
   }
 }
@@ -100,5 +103,4 @@ export default {
   }
 }
 </style>
-
 

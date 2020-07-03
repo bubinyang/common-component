@@ -5,7 +5,7 @@ const NODE_ENV = process.env.NODE_ENV
 
 module.exports = {
   // 修改打包入口
-  entry: NODE_ENV == 'development' ? './src/main.js' : './src/index.js',
+  entry: NODE_ENV === 'development' ? './src/main.js' : './src/index.js',
 
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -22,7 +22,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader'
-        ],
+        ]
       },
       {
         test: /\.scss$/,
@@ -30,7 +30,7 @@ module.exports = {
           'vue-style-loader',
           'css-loader',
           'sass-loader'
-        ],
+        ]
       },
       {
         test: /\.sass$/,
@@ -38,7 +38,7 @@ module.exports = {
           'vue-style-loader',
           'css-loader',
           'sass-loader?indentedSyntax'
-        ],
+        ]
       },
       {
         test: /\.vue$/,
@@ -71,6 +71,7 @@ module.exports = {
         //   }
         //  }],
         loader: 'babel-loader',
+        // exclude: '/node_modules\/(?!(three)\/).*/'
         exclude: /node_modules/
       },
       {
@@ -82,8 +83,8 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-        loader: 'file-loader',
-   
+        loader: 'file-loader'
+
       }
     ]
   },

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-// import OrbitControls from 'three-orbitcontrols'
+import OrbitControls from 'three-orbitcontrols'
 import * as THREE from 'three'
 export default {
   name: 'ThreeDemo',
@@ -108,8 +108,8 @@ export default {
       }
 
       render()
-      // var controls = new OrbitControls(camera, renderer.domElement)// 创建控件对象
-      // controls.addEventListener('change', render)
+      var controls = new OrbitControls(camera, renderer.domElement)// 创建控件对象
+      controls.addEventListener('change', render)
     }
   }
 }

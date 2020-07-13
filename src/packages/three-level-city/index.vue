@@ -9,7 +9,7 @@
       />
     </el-select>
 
-    <el-select v-model="cityVal" filterable :disabled="provinceVal===''" placeholder="市" @change="showHandle">
+    <el-select v-model="cityVal" filterable :disabled="provinceVal===''" placeholder="市" @change="showHandle('city')">
       <el-option
         v-for="item in cityList"
         :key="item.value"
@@ -18,7 +18,7 @@
       />
     </el-select>
 
-    <el-select v-model="districtVal" filterable :disabled="cityVal===''" placeholder="区" @change="showHandle">
+    <el-select v-model="districtVal" filterable :disabled="cityVal===''" placeholder="区" @change="showHandle('district')">
       <el-option
         v-for="item in districtList"
         :key="item.value"
@@ -60,11 +60,6 @@ export default {
       provinceVALUE: '',
       citysVALUE: '',
       districtVALUE: '',
-
-      options: [{
-        value: '选项1',
-        label: '黄金糕'
-      }],
       province: citys
     }
   },
@@ -119,10 +114,21 @@ export default {
   },
   methods: {
     showHandle(type) {
-      if (type === 'province') { this.cityVal = ''; this.districtVal = '' }
+      this.typeAction().selectNode(type)
       const arr = [this.provinceVALUE, this.citysVALUE, this.districtVALUE]
       this.$emit('change', arr.join(','))// 双向绑定emit
-      this.$emit('acceptData', arr.join(','))
+    },
+    typeAction() {
+      const actionTypes = {
+        province: () => { this.cityVal = ''; this.districtVal = ''; this.$emit('chang-province', this.provinceVALUE) }, // 切换省份回调函数
+        city: () => { this.$emit('chang-city', this.citysVALUE) }, // 切换城市回调函数
+        district: () => { this.$emit('chang-district', this.districtVALUE) }// 切换行政区回调函数
+      }
+      return {
+        selectNode(key) {
+          return actionTypes[key] ? actionTypes[key]() : false
+        }
+      }
     }
   }
 }

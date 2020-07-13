@@ -1,21 +1,11 @@
-// import HelloWorld from './packages/hello-world/index.js';
-// import HelloWorld from './packages/hello-world/moor-hello-world'
-import HelloWorld from './packages/hello-world/index.js'
-import MoorButton from './packages/button/index.js'
-import MoorSelect from './packages/select/index.js'
-import MoorInput from './packages/input/index.js'
-import MoorSwitch from './packages/switch/index.js'
+import HelloWorld from './packages/hello-world/moor-hello-world.vue'
 import ThreeLevelCity from './packages/three-level-city/index.vue'
-// import ThreeDemo from './packages/threeDemo/demo/index.vue'
+import ThreeDemo from './packages/threeDemo/demo/index.vue'
 
 const components = [
   HelloWorld,
-  MoorButton,
-  MoorSelect,
-  MoorInput,
-  MoorSwitch,
-  ThreeLevelCity
-  // ThreeDemo
+  ThreeLevelCity,
+  ThreeDemo
 ]
 
 const install = function(Vue, opts = {}) {
@@ -30,12 +20,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  install,
-  HelloWorld,
-  MoorButton,
-  MoorSelect,
-  MoorInput,
-  MoorSwitch,
-  ThreeLevelCity
-  // ThreeDemo
+  install
 }

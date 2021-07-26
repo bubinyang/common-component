@@ -1,7 +1,8 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
-const NODE_ENV = process.env.NODE_ENV
+const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
   // 修改打包入口
@@ -71,6 +72,9 @@ module.exports = {
         //   }
         //  }],
         loader: 'babel-loader',
+        options: {
+          plugins: ['syntax-dynamic-import']
+        },
         exclude: '/node_modules\/(?!(three)\/).*/'
         // exclude: /node_modules/
       },
@@ -82,7 +86,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        test: /\.(eot|svg|ttf|woff|woff2|fbx)(\?\S*)?$/,
         loader: 'file-loader'
 
       }
@@ -90,23 +94,29 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve('src')
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    host: '192.168.8.114'
   },
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
-}
+  devtool: '#eval-source-map',
+
+  plugins: [
+    new MonacoWebpackPlugin()
+  ]
+};
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+  module.exports.devtool = '#source-map';
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
@@ -123,5 +133,6 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
-  ])
+
+  ]);
 }

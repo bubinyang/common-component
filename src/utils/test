@@ -1,0 +1,29 @@
+
+interface DB{
+    save():void;
+}
+
+class User{
+  constructor(private db:DB){
+
+  }
+  save(){
+    this.db.save('测试')
+  }
+
+}
+
+
+class Localstorge implements DB{
+  save(str:string){
+      console.log(str,'localstorge')
+  }
+}
+
+class Indexdb implements DB{
+  save(str:string){
+     console.log(str,'index')
+  }
+}
+const user = new User(new Localstorge())
+user.save()

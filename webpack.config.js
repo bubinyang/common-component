@@ -103,7 +103,7 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
-    host: '192.168.8.114'
+    host: '192.168.8.184'
   },
   performance: {
     hints: false

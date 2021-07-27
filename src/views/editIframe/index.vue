@@ -1,6 +1,6 @@
 <template>
   <section id="stageContain">
-    <div class="logContain" />
+    <div class="logContain" v-if="tools" />
   </section>
 </template>
 
@@ -12,6 +12,7 @@ export default {
   name: 'Test',
   data() {
     return {
+      tools:false
     };
   },
   mounted() {
@@ -30,8 +31,10 @@ export default {
         objUpdate = `{created(){
           ${obj}
         }}`;
+        this.tools=true
       } else {
         objUpdate = obj;
+        this.tools=false
       }
 
       const jscode = (objUpdate || '{}').replace(/([\n\r]+)/g, '');

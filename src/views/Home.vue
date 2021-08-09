@@ -66,7 +66,7 @@
     </section>
     <iframe id="stageContainIframe" ref="stageContainIframe" width="500" height="500" src="/#/rotate" />
 
-    <section class="scroll-container">
+    <section class="scroll-container" @click="test">
       <div class="content">
         <span>大概大概豆腐干大概大概豆腐干大概大概豆腐干大概大概豆腐干大概大概豆腐干</span>
       </div>
@@ -149,10 +149,65 @@ export default {
       const el = window.open('https://open.weixin.qq.com/connect/qrconnect?appid=wx85f17c29f3e648bf&response_type=code&scope=snsapi_login&redirect_uri=https%3A%2F%2Fpassport.baidu.com%2Fphoenix%2Faccount%2Fafterauth%3Fmkey%3D3176f325f37bba91a1ba90876ce5ee854b26f6c753a04ca308%26tpl%3Dmn%26appid%3Dwx85f17c29f3e648bf%26traceid%3D&state=1621493368&display=page&traceid=', 'test', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, copyhistory=no, width=' + 500 + ', height=' + 500 + ', top=' + 200 + ', left=' + 200);
     // el.focus()
     }, 2000);
+
+
+
+
+
+
+
+   
+
+//  const allotRatio=4
+//  let balance=0
+
+// document.querySelector('.reconnect-message__text') //重连标识
+
+// Number(document.querySelector('.balance .fit-container__content2nPGiJBm9YMsqn0juLFoTe').innerText)
+
+//  const newestNodeList=Array.prototype.slice.call(document.querySelector('.sicbo-history .sicbo-history__item-dice').querySelectorAll('.sicbo-history__item-dice-number')) 
+//  const newestList=newestNodeList.map(item=>item.innerText)
+
+//  const rules=[
+     
+//  {label:'big',values:['5,5','2,5','2,2']},
+//  {label:'small',values:['1,3','3,3','1,1']}
+
+// ]
+
+//  const findResult=rules.find(item=>{
+//    return item.values.some(childitem=>newestList.join(',').some(childitem))
+//  })
+
+// if(findResult.label==='big'){
+//     clickBig()
+// }else{
+//     clickSmall()
+// }
+
+
+
+// function clickSmall(){
+//     var e = document.createEvent("MouseEvents");
+//      e.initEvent("click", true, true);
+//      document.querySelector(".sicbo-bet-place_small .sicbo-bet-place__multiplier-background").dispatchEvent(e);
+// }
+
+// function clickBig(){
+//     var e = document.createEvent("MouseEvents");
+//      e.initEvent("click", true, true);
+//      document.querySelector(".sicbo-bet-place_big .sicbo-bet-place__multiplier-background").dispatchEvent(e);
+// }
+
+
+
+
   },
 
   methods: {
-
+   test(){
+   console.log(123)
+   },
     compile() {
       const Component = Vue.extend({
         methods: {

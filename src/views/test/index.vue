@@ -8,8 +8,9 @@
     />
   </el-select> -->
   <section class="test">
-    {{ widthVal }}
-    <div class="x6-graph-scroller" />
+    {{ widthVal }},
+    {{screenVal}}
+
   </section>
 
 </template>
@@ -21,11 +22,13 @@ export default {
     return {
       value: 'red',
       options: [{ label: '红色', value: 'red' }, { label: '蓝色', value: 'blue' }],
-      widthVal: ''
+      widthVal: '',
+      screenVal:''
     };
   },
   mounted() {
     this.widthVal = document.querySelector('body').getBoundingClientRect().width;
+    this.screenVal=window.screen.width
     // const Component = Vue.extend({
     //   data: function() {
     //     return {
@@ -47,14 +50,14 @@ export default {
 body{
 
 }
-.test{
-  width: 100%;
-  height: 100%;
-  border: 1px solid;
-  overflow: hidden;
-   .x6-graph-scroller{
-  width: 1920px; height: 1080px;
-   }
-}
+// .test{
+//   width: 100%;
+//   height: 100%;
+//   // border: 1px solid;
+//   overflow: hidden;
+//    .x6-graph-scroller{
+//   // width: 1920px; height: 1080px;
+//    }
+// }
 
 </style>

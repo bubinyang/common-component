@@ -44,7 +44,7 @@
     "file-loader": "^1.1.4",
     "file-saver": "^2.0.2",
     "monaco-editor-webpack-plugin": "^1.8.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "sass": "^1.32.8",
     "sass-loader": "^6.0.7",
     "vue-loader": "^13.0.5",
